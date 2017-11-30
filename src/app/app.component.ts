@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioService } from './servicio.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+    constructor(
+      private servicio: ServicioService
+    ) {}
+    getAlgo() {
+      this.servicio
+          .getAlgo()
+          .subscribe(
+            algo => { console.log(algo); }
+          )
+    }
 }
